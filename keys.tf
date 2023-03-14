@@ -8,3 +8,9 @@ provider "azurerm" {
   subscription_id = "d8391944-774c-41db-95d3-6797158258bc"
 }
 
+variable "client_secret" {
+  type        = string
+  description = "Password to authenticate against Azure"
+}
+
+
