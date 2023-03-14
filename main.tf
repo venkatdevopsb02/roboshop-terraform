@@ -19,7 +19,7 @@ resource "azurerm_network_security_group" "az-trainings" {
   resource_group_name = azurerm_resource_group.az-trainings.name
 }
 
-resource "azurerm_network_security_rule" "az-trainings" {
+resource "azurerm_network_security_rule" "nsgrule1" {
   name                        = "allow-ssh"
   priority                    = 100
   direction                   = "Inbound"
@@ -33,7 +33,7 @@ resource "azurerm_network_security_rule" "az-trainings" {
   network_security_group_name = azurerm_network_security_group.az-trainings.name
 }
 
-resource "azurerm_network_security_rule" "az-trainings" {
+resource "azurerm_network_security_rule" "nsgrule2" {
   name                        = "allow-80"
   priority                    = 101
   direction                   = "Inbound"
@@ -47,7 +47,7 @@ resource "azurerm_network_security_rule" "az-trainings" {
   network_security_group_name = azurerm_network_security_group.az-trainings.name
 }
 
-resource "azurerm_network_security_rule" "az-trainings" {
+resource "azurerm_network_security_rule" "nsgrule3" {
   name                        = "allow-8080"
   priority                    = 102
   direction                   = "Inbound"
