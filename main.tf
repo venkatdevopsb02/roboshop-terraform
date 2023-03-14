@@ -67,3 +67,8 @@ resource "azurerm_network_security_rule" "nsgrule3" {
   resource_group_name         = azurerm_resource_group.az-trainings.name
   network_security_group_name = azurerm_network_security_group.az-trainings.name
 }
+
+resource "azurerm_subnet_network_security_group_association" "az-trainings" {
+  subnet_id                 = azurerm_subnet.az-trainings.id
+  network_security_group_id = azurerm_network_security_group.az-trainings.id
+}
