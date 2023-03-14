@@ -1,3 +1,5 @@
 .terraform
 .var
 .terraform.lock.hcl
+keys.tf.var
+
