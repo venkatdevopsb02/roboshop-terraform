@@ -21,6 +21,7 @@ resource "azurerm_linux_virtual_machine" "az-trainings" {
   admin_username      = "centos"
   admin_password      = "DevOps654321"
 
+
   disable_password_authentication = false 
 
   network_interface_ids = [
@@ -41,3 +42,19 @@ resource "azurerm_linux_virtual_machine" "az-trainings" {
     version   = "8.5.2022101401"
   }
 }
+
+
+resource "azurerm_dev_test_global_vm_shutdown_schedule" "az-trainings" {
+  virtual_machine_id = azurerm_linux_virtual_machine.az-trainings.id
+  location           = azurerm_resource_group.az-trainings.location
+  enabled            = true
+
+  daily_recurrence_time = "0730"
+  timezone              = "Eastern Standard Time"
+
+
+  notification_settings {
+    enabled         = false
+   
+  }
+ }
