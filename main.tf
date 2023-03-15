@@ -13,6 +13,7 @@ resource "azurerm_public_ip" "az-trainings" {
 }
 
 resource "azurerm_network_interface" "az-trainings" {
+  depends_on          = [azurerm_public_ip.az-trainings]
   name                = "az-trainings-nic"
   location            = azurerm_resource_group.az-trainings.location
   resource_group_name = azurerm_resource_group.az-trainings.name
@@ -28,6 +29,7 @@ resource "azurerm_network_interface" "az-trainings" {
 
 
 resource "azurerm_linux_virtual_machine" "az-trainings" {
+  depends_on          = [azurerm_network_interface.az-trainings]
   name                = "jumpserver"
   resource_group_name = azurerm_resource_group.az-trainings.name
   location            = azurerm_resource_group.az-trainings.location
