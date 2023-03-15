@@ -13,10 +13,10 @@ resource "azurerm_public_ip" "az-trainings" {
 }
 
 module "linuxservers" {
-  source              = "module-vm"
-  vm-name             = jumpserver 
+  source              = "./module-vm"
+  vm-name             = "jumpserver" 
   rg-name             = azurerm_resource_group.az-trainings.name
   location            = azurerm_resource_group.az-trainings.location
   subnet-id           = azurerm_subnet.az-trainings.id
-  nic-name            = az-trainings-nic
+  nic-name            = "az-trainings-nic"
 }
