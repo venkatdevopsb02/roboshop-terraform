@@ -1,23 +1,22 @@
 
 resource "azurerm_network_interface" "az-trainings" {
-  name                = var.nic-
-  location            = azurerm_resource_group.az-trainings.location
-  resource_group_name = azurerm_resource_group.az-trainings.name
+  name                = var.nic-name
+  location            = var.location
+  resource_group_name = var.rg-name
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_subnet.az-trainings.id
+    subnet_id                     = var.subnet-id
     private_ip_address_allocation = "Dynamic"
   }
 }
 
 
-
 resource "azurerm_linux_virtual_machine" "az-trainings" {
   depends_on          = [azurerm_network_interface.az-trainings]
-  name                = "jumpserver"
-  resource_group_name = azurerm_resource_group.az-trainings.name
-  location            = azurerm_resource_group.az-trainings.location
+  name                = var.vm-name
+  resource_group_name = var.rg-name
+  location            = var.location
   size                = "Standard_B1s"
   admin_username      = "centos"
   admin_password      = "DevOps654321"
