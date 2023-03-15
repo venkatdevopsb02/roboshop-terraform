@@ -35,7 +35,7 @@ resource "azurerm_linux_virtual_machine" "az-trainings" {
   location            = azurerm_resource_group.az-trainings.location
   size                = "Standard_B1s"
   admin_username      = "centos"
-  admin_password      = "DeVOps654321"
+  admin_password      = "DevOps654321"
 
   disable_password_authentication = false 
 
