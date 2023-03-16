@@ -19,5 +19,5 @@ module "linuxservers" {
   rg-name             = azurerm_resource_group.az-trainings.name
   location            = azurerm_resource_group.az-trainings.location
   subnet-id           = azurerm_subnet.az-trainings.id
-  nic-name            = ${each-value}-nic
+  nic-name            = nic-${each-value}
 }
