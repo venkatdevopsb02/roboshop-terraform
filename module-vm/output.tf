@@ -1,6 +1,6 @@
 
 
-ouptut "sample" {
+output "sample" {
   value = "Hello World"
 }
 
