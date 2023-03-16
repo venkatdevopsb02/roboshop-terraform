@@ -14,9 +14,10 @@ resource "azurerm_public_ip" "az-trainings" {
 
 module "linuxservers" {
   source              = "./module-vm"
-  vm-name             = "jumpserver" 
+  for_each            = toset(var.vm-name)
+  vm-name             = each.value 
   rg-name             = azurerm_resource_group.az-trainings.name
   location            = azurerm_resource_group.az-trainings.location
   subnet-id           = azurerm_subnet.az-trainings.id
-  nic-name            = "az-trainings-nic"
+  nic-name            = ${each-value}-nic
 }
