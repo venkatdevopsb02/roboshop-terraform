@@ -18,3 +18,16 @@ resource "azurerm_subnet_network_security_group_association" "az-trainings" {
   subnet_id                 = azurerm_subnet.az-trainings.id
   network_security_group_id = azurerm_network_security_group.az-trainings.id
 }
+
+
+resource "azurerm_private_dns_zone" "az-trainings" {
+  name                = "roboshop.internal"
+  resource_group_name = azurerm_resource_group.az-trainings.name
+}
+
+resource "azurerm_private_dns_zone_virtual_network_link" "az-trainings" {
+  name                  = "link-privatedns-to-vnet"
+  resource_group_name   = azurerm_resource_group.az-trainings.name
+  private_dns_zone_name = azurerm_private_dns_zone.az-trainings.name
+  virtual_network_id    = azurerm_virtual_network.az-trainings.id
+}
