@@ -1,7 +1,7 @@
 resource "azurerm_public_ip" "az-trainings" {
   name                = var.vm-pip
-  resource_group_name = azurerm_resource_group.az-trainings.name
-  location            = azurerm_resource_group.az-trainings.location
+  resource_group_name = var.rg-name
+  location            = var.location
   allocation_method   = "Dynamic"
 
   tags = {
