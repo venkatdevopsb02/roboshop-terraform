@@ -5,12 +5,7 @@ resource "azurerm_resource_group" "az-trainings" {
 }
 
 
-resource "azurerm_public_ip" "az-trainings" {
-  name                = "jumpserver-pip"
-  location            = azurerm_resource_group.az-trainings.location
-  resource_group_name = azurerm_resource_group.az-trainings.name
-  allocation_method   = "Dynamic"
-}
+
 
 module "linuxservers" {
   source              = "./module-vm"
@@ -20,4 +15,15 @@ module "linuxservers" {
   location            = azurerm_resource_group.az-trainings.location
   subnet-id           = azurerm_subnet.az-trainings.id
   nic-name            = "nic-${each.value}"
+}
+
+module "publicipadd" {
+  source              = "./module-public-ip"
+  for_each            = toset(var.vm-pip)
+  vm-pip              = each.value 
+  rg-name             = azurerm_resource_group.az-trainings.name
+  location            = azurerm_resource_group.az-trainings.location
+  subnet-id           = azurerm_subnet.az-trainings.id
+  nic-name            = "nic-${each.value}"
+  depends_on          = [module.linuxservers]
 }
