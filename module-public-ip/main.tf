@@ -10,7 +10,7 @@ resource "azurerm_public_ip" "az-trainings" {
 }
 
 # Create network interface
-data "azurerm_network_interface" "az-trainings" {
+resource "azurerm_network_interface" "az-trainings" {
   name                = var.nic-name
   location            = var.location
   resource_group_name = var.rg-name
@@ -18,7 +18,7 @@ data "azurerm_network_interface" "az-trainings" {
   ip_configuration {
     name                          = "internal"
     subnet_id                     = var.subnet-id
-    private_ip_address_allocation = "Dynamic"
+    #private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.az-trainings.id
   }
 }
