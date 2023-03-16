@@ -10,7 +10,7 @@ resource "azurerm_public_ip" "az-trainings" {
 }
 
 # Create network interface
-resource "azurerm_network_interface" "az-trainings" {
+data "azurerm_network_interface" "az-trainings" {
   name                = var.nic-name
   location            = var.location
   resource_group_name = var.rg-name
