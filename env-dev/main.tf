@@ -8,7 +8,7 @@ resource "azurerm_resource_group" "az-trainings" {
 
 
 module "linuxservers" {
-  source              = "./module-vm"
+  source              = "../module-vm"
   for_each            = toset(var.vm-name)
   vm-name             = each.value 
   rg-name             = azurerm_resource_group.az-trainings.name
@@ -18,7 +18,7 @@ module "linuxservers" {
 }
 
 module "publicipadd" {
-  source              = "./module-vm-public"
+  source              = "../module-vm-public"
   for_each            = toset(var.vm-pip)
   vm-name             = each.value 
   rg-name             = azurerm_resource_group.az-trainings.name
