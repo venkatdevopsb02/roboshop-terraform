@@ -11,6 +11,6 @@ output "sample" {
 #  #value       = module.publicipadd.azurerm_network_interface.az-trainings.*.private_ip_address  
 #}
 
-#output "public_ip_address" {
-#  value = module.publicipadd.azurerm_linux_virtual_machine.az-trainings.public_ip_address
-#}
+output "public_ip_address" {
+  value = module.publicipadd.azurerm_linux_virtual_machine.az-trainings.private_ip_address
+}
