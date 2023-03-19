@@ -12,5 +12,10 @@ output "sample" {
 #}
 
 output "private_ip_address" {
+  value = module.linuxservers.*
+}
+
+
+output "public_ip_address" {
   value = module.publicipadd.*
 }

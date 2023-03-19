@@ -66,3 +66,8 @@ resource "azurerm_dev_test_global_vm_shutdown_schedule" "az-trainings" {
    
   }
  }
+
+
+ output "public_ip_address" {
+  value = azurerm_linux_virtual_machine.az-trainings.public_ip_address
+}
