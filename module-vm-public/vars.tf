@@ -1,7 +1,3 @@
-variable vm-pip {
-    type        = string
-    description = "public ip name"
-}
 
 variable "rg-name" {
   type        = string
@@ -17,6 +13,12 @@ variable "location" {
 variable "nic-name" {
   type        = string
   description = "Network interface name "
+}
+
+
+variable "vm-name" {
+  type        = string
+  description = "vm-name"
 }
 
 
