@@ -12,5 +12,5 @@ output "sample" {
 #}
 
 output "public_ip_address" {
-  value = module.publicipadd.azurerm_linux_virtual_machine.az-trainings.private_ip_address
+  value = module.publicipadd.public_ip_address
 }
