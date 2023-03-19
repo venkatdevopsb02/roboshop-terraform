@@ -61,5 +61,5 @@ resource "azurerm_dev_test_global_vm_shutdown_schedule" "az-trainings" {
 
 
  output "private_ip_address" {
-  value = azurerm_linux_virtual_machine.az-trainings.private_ip_address
+  value = "${azurerm_linux_virtual_machine.az-trainings.private_ip_address}"
 }
