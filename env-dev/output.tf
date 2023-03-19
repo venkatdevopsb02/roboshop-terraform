@@ -11,6 +11,6 @@ output "sample" {
 #  #value       = module.publicipadd.azurerm_network_interface.az-trainings.*.private_ip_address  
 #}
 
-output "public_ip_address" {
+output "private_ip_address" {
   value = module.publicipadd.*
 }
