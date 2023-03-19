@@ -1,5 +1,5 @@
 resource "azurerm_public_ip" "az-trainings" {
-  name                = var.nic-name-"pip"
+  name                = var.nic-name
   location            = var.location
   resource_group_name = var.rg-name
   allocation_method   = "Dynamic"
