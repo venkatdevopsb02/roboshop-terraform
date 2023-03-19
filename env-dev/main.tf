@@ -8,7 +8,7 @@ resource "azurerm_resource_group" "az-trainings" {
 
 
 module "linuxservers" {
-  source              = "../module-vm"
+  source              = "https://github.com/venkatdevopsb02/roboshop-terraform/tree/main/module-vm"
   for_each            = toset(var.vm-name)
   vm-name             = each.value 
   rg-name             = azurerm_resource_group.az-trainings.name
