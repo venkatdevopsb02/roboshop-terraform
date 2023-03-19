@@ -1,3 +1,10 @@
+resource "azurerm_public_ip" "az-trainings" {
+  name                = var.nic-name-"pip"
+  location            = var.location
+  resource_group_name = var.rg-name
+  allocation_method   = "Dynamic"
+}
+
 
 resource "azurerm_network_interface" "az-trainings" {
   name                = var.nic-name
@@ -8,6 +15,7 @@ resource "azurerm_network_interface" "az-trainings" {
     name                          = "internal"
     subnet_id                     = var.subnet-id
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.az-trainings.id
   }
 }
 

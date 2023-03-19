@@ -18,9 +18,9 @@ module "linuxservers" {
 }
 
 module "publicipadd" {
-  source              = "./module-public-ip"
+  source              = "./module-vm-public"
   for_each            = toset(var.vm-pip)
-  vm-pip              = each.value 
+  vm-name             = each.value 
   rg-name             = azurerm_resource_group.az-trainings.name
   location            = azurerm_resource_group.az-trainings.location
   subnet-id           = azurerm_subnet.az-trainings.id
