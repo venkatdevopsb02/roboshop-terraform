@@ -7,5 +7,5 @@ variable "vm-name" {
 variable "vm-pip" {
     type        = list(string) 
     description = "Name of the public ip"
-    default     = ["jumpserver", "frontend"]
+    default     = ["jumpserver", "frontend", "dockervm"]
 }
